@@ -1,4 +1,4 @@
-import { IMailProvider } from "../IMailProvider";
+import { IMailProvider, IMessage } from "../IMailProvider";
 import nodemailer from 'nodemailer'
 
 export class MailtrapMailProvider implements IMailProvider {
@@ -16,7 +16,7 @@ export class MailtrapMailProvider implements IMailProvider {
     }
 
     async sendMail(message: IMessage): Promise<void> {
-        await this.transporter,sendMail({
+        await this.transporter.sendMail({
             to: {
                 name: message.to.name,
                 address: message.to.email,
